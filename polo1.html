@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Polo Negro Oversize</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="producto-page">
+<header class="top-bar">
+<a href="index.html" class="logo-link">КΛИΛ</a>
+</header>
+
+<section class="producto-detalle">
+
+  <!-- IMAGEN -->
+  <div class="producto-img">
+    <img src="img/polo1-front.jpg" alt="Polo Negro Oversize">
+  </div>
+
+  <!-- INFO -->
+  <div class="producto-info">
+
+    <h1>Polo Verde Oversize</h1>
+    <p class="precio">S/ 59.90</p>
+    <p class="descripcion">COLOR: SAGE GREEN</p>
+    <p class="T">TALLAS:</p>
+
+    <div class="tallas">
+      <span data-talla="S">S</span>
+      <span data-talla="M">M</span>
+      <span data-talla="L">L</span>
+      <span data-talla="XL">XL</span>
+    </div>
+
+    <a id="btn-comprar" class="comprar-btn disabled">
+      Seguir con la compra
+    </a>
+
+  </div>
+
+</section>
+
+<script>
+  const tallas = document.querySelectorAll(".tallas span");
+  const btnComprar = document.getElementById("btn-comprar");
+
+  let tallaSeleccionada = "";
+
+  tallas.forEach(talla => {
+    talla.addEventListener("click", () => {
+
+      tallas.forEach(t => t.classList.remove("active"));
+
+      talla.classList.add("active");
+      tallaSeleccionada = talla.dataset.talla;
+
+      btnComprar.classList.remove("disabled");
+      btnComprar.classList.add("active");
+
+      btnComprar.href =
+        `https://wa.me/51951745919?text=Hola, quiero el Polo Negro Oversize talla ${tallaSeleccionada}`;
+    });
+  });
+</script>
+
+</body>
+</html>

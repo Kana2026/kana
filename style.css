@@ -1,0 +1,331 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: hsl(0, 0%, 100%);
+  color: #000;
+}
+
+.hero {
+  height: 100vh;
+  background: #000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  padding: 80px 100px 100px;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.card {
+  display: block; 
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 16px;
+  text-decoration: none;
+  color: lch(16.43% 16.71 251.3);
+  
+
+}
+
+.card:hover {
+  transform: translateY(-28px);
+  box-shadow: 0 30px 60px oklab(37.009% 0.14285 -0.06553 / 0.808);
+}
+
+.card::after {
+  content: "Ver detalles";
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: lch(0% 0 0 / 0.851);
+  color: #fff;
+  padding: 12px 26px;
+  font-size: 14px;
+  letter-spacing: px;
+  border-radius: 30px;
+  opacity: 0;
+  transition: opacity 0.70s ease, transform 0.20s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.card:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.img-box {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  background: #f5f5f5;
+  z-index: 1;
+}
+
+.img-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(202, 98, 98, 0.04);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.card:hover .img-box::after {
+  opacity: 1;
+  filter: brightness(0.92);
+}
+
+.img-box img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+  transition: opacity .3s ease, transform 0.9s cubic-bezier(.19,1,.22,1);
+  z-index: 1;
+}
+
+.img-front {
+  opacity: 1;
+  z-index: 1;
+}
+
+.img-back {
+  opacity: 0;
+  z-index: 2;
+}
+
+.card:hover .img-front {
+  opacity: 0;
+  transform: scale(1.08);
+}
+
+.card:hover .img-back {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-top: 17px;
+  letter-spacing: 1.3px;
+}
+
+.precio {
+  font-size: 1.75rem;
+  opacity: 1.55;
+  transition: all 0.4s ease;
+}
+
+.card:hover .precio {
+  transform: translateY(-4px);
+  opacity: 1;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.1s ease, transform 0.1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in.visible:hover {
+  transform: translateY(-30px);
+}
+.producto-detalle {
+  display: grid;
+  grid-template-columns: 1.1fr 1.0fr;
+  gap: 100px;
+  padding: 45px;
+  max-width:2500px;
+  margin: auto;
+  align-items: stretch;
+}
+
+/* Imagen grande, tipo Zara */
+.producto-img img {
+  width: 100%;
+  height:100%;
+  object-fit: cover;
+}
+.producto-info-top {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* Info ocupa TODO el espacio blanco */
+.producto-info {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  justify-content: space-between;
+}
+
+/* Título premium */
+.producto-info h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Precio elegante */
+.producto-info .precio {
+  font-size: 1.7rem;
+  margin-bottom: 30px;
+}
+
+/* Tallas */
+.tallas {
+  display: flex;
+  gap: 190px;
+  margin-bottom: 20px;
+}
+
+.tallas span {
+  border: 1px solid #000000;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tallas span:hover {
+  background: #000;
+  color: #fff;
+}
+.producto-img {
+  height: 90vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.producto-info-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.tallas span {
+  border: 1px solid #000;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.tallas span.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.18);
+}
+.comprar-btn.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.comprar-btn {
+  display: block;
+  margin-top: 24px;
+  width: 100%;
+  padding: 25px;
+  border: 1px solid #ffffff;
+  text-align: center;
+  border-radius: 80px;
+  background: #e5e5e5;
+  color: lch(41.87% 3.38 19.75);
+  font-weight: 700;
+  letter-spacing: 1px;
+  pointer-events: none;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  cursor: default;
+}
+
+.comprar-btn.active {
+  opacity: 1;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.comprar-btn:hover.active {
+  background: #000;
+}
+.producto-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px 60px;
+  z-index: 100;
+  background: transparent;
+}
+
+.top-bar {
+  width: 50%;
+  padding: 18px 48px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 999;
+
+}
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+  transition: opacity .2s ease;
+}
+
+.logo-text:hover {
+  opacity: 0.6;
+}
+.logo-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+
+  color: #000;              /* NEGRO elegante */
+  text-decoration: none;    /* chau subrayado */
+  
+  display: inline-block;
+}
+
+.logo-link:visited {
+  color: lch(0% 0 0); /* evita que se vuelva morado */
+}
+
+.logo-link:hover {
+  opacity: 0.65;
+}
