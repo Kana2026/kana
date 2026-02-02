@@ -378,3 +378,36 @@ h3 {
     transform: translateY(0);
   }
 }
+@media (max-width: 768px) {
+
+  .producto-detalle {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .producto-img {
+    position: relative;
+    height: auto;
+  }
+
+  .producto-img img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: cover;
+  }
+
+  .top-bar {
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  .producto-info h1 {
+    font-size: 2.4rem;
+  }
+
+  .tallas {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+}
