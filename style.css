@@ -142,18 +142,26 @@ h3 {
   opacity: 1;
 }
 
+
 .fade-in {
   opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.1s ease, transform 0.1s ease;
+  transform: translateY(50px) scale(0.98);
+  filter: blur(6px);
 }
 
 .fade-in.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(.19,1,.22,1),
+    filter 0.8s ease;
 }
+
+/* Hover sigue funcionando */
 .fade-in.visible:hover {
-  transform: translateY(-30px);
+  transform: translateY(-28px) scale(1.01);
 }
 .producto-detalle {
   display: grid;
@@ -328,4 +336,45 @@ h3 {
 
 .logo-link:hover {
   opacity: 0.65;
+}
+.logo-anim {
+  font-size: clamp(10rem, 8vw, 7rem);
+  font-weight: 200;
+  letter-spacing: 0.3em;
+  display: flex;
+  gap: 12px;
+}
+
+.logo-anim span {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: logoReveal 0.9s cubic-bezier(.19,1,.22,1) forwards;
+}
+
+.logo-anim span:nth-child(1) { animation-delay: 0.1s; }
+.logo-anim span:nth-child(2) { animation-delay: 0.2s; }
+.logo-anim span:nth-child(3) { animation-delay: 0.3s; }
+.logo-anim span:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes logoReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtítulo */
+.hero-sub {
+  margin-top: 18px;
+  font-size: 1rem;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 0.75;
+    transform: translateY(0);
+  }
 }
