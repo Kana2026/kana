@@ -12,6 +12,8 @@ body {
 
 .hero {
   height: 100vh;
+  height: auto;
+  padding: 365px 20px;
   background: #000;
   color: #ffffff;
   display: flex;
@@ -387,15 +389,14 @@ h3 {
 
   .producto-img {
     position: relative;
-    height: auto;
-    display: block;
+    height: 70vh;          /* 🔥 altura real */
+    min-height: 420px;     /* 🔥 evita que colapse */
   }
 
   .producto-img img {
     width: 100%;
-    height: auto;        /* 🔥 CLAVE */
-    max-height: none;    /* 🔥 quita el límite raro */
-    object-fit: contain; /* 🔥 evita el corte */
+    height: 100%;
+    object-fit: cover;
     display: block;
   }
 
