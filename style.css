@@ -388,13 +388,15 @@ h3 {
   .producto-img {
     position: relative;
     height: auto;
+    display: block;
   }
 
   .producto-img img {
     width: 100%;
-    height: auto;
-    max-height: 80vh;
-    object-fit: cover;
+    height: auto;        /* 🔥 CLAVE */
+    max-height: none;    /* 🔥 quita el límite raro */
+    object-fit: contain; /* 🔥 evita el corte */
+    display: block;
   }
 
   .top-bar {
