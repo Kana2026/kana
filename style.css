@@ -59,7 +59,7 @@ body {
   color: #fff;
   padding: 12px 26px;
   font-size: 14px;
-  letter-spacing: px;
+  letter-spacing: 1px;
   border-radius: 30px;
   opacity: 0;
   transition: opacity 0.70s ease, transform 0.20s ease;
@@ -243,15 +243,23 @@ h3 {
   border: 1px solid #000;
   padding: 12px 20px;
   cursor: pointer;
-  transition: all 0.2s ease;
   user-select: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
 }
+.tallas span:active {
+  transform: scale(0.94);
+}
+
 .tallas span.active {
   background: #000;
   color: #fff;
   border-color: #000;
-  transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0,0,0,.18);
+  transform: translateY(-2px) scale(1.02);
 }
 .comprar-btn.disabled {
   opacity: 0.4;
@@ -274,7 +282,6 @@ h3 {
   transition: all 0.4s ease;
   cursor: default;
 }
-
 .comprar-btn.active {
   opacity: 1;
   background: #000;
@@ -282,6 +289,13 @@ h3 {
   font-weight: 600;
   cursor: pointer;
   pointer-events: auto;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+.comprar-btn.active:active {
+  transform: scale(0.97);
 }
 
 .comprar-btn:hover.active {
@@ -420,4 +434,28 @@ h3 {
     font-size: clamp(5rem, 14vw, 7rem);
     letter-spacing: 0.22em;
   }
+}
+.img-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 14px;
+  width: 100%;
+}
+
+.img-scroll img {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+.img-scroll img:hover {
+  transform: scale(1.02);
+}
+/* Oculta scroll feo */
+.img-scroll::-webkit-scrollbar {
+  display: none;
 }
