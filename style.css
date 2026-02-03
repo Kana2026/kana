@@ -11,15 +11,16 @@ body {
 }
 
 .hero {
-  height: 100vh;
-  height: auto;
-  padding: 365px 20px;
+  min-height: 100svh;   /* 👈 clave para iOS moderno */
   background: #000;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 
 .productos {
@@ -412,5 +413,11 @@ h3 {
   .tallas {
     gap: 16px;
     flex-wrap: wrap;
+  }
+}
+@media (max-width: 768px) {
+  .logo-anim {
+    font-size: clamp(5rem, 14vw, 7rem);
+    letter-spacing: 0.22em;
   }
 }
